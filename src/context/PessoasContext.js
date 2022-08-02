@@ -106,7 +106,7 @@ function PessoasProvider({ children }) {
                 }
             });
             alert("Endereço cadastrado com sucesso!");
-            window.location.href = "/endereco"
+            window.location.href = "/home"
             console.log(data)
         } catch (error) {
             alert(error)

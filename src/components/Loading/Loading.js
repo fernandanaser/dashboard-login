@@ -5,4 +5,4 @@ function Loading() {
         <Loader></Loader>
     )
 }
-export default Loading
+export default Loading;

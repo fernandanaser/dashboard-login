@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { API } from "../api";
+import Loading from "../components/Loading/Loading"
 
 const AuthContext = createContext();
 
@@ -69,13 +70,9 @@ const AuthProvider = ({ children }) => {
         window.location.href = "/home";
     }
 
-    // const Loading = () => {
-
-    // }
-
-    // if (loading) {
-    //     return (<h1>Loading</h1>)
-    // }
+    if (loading) {
+        return (<Loading />)
+    }
 
     return (
         <AuthContext.Provider value={{
