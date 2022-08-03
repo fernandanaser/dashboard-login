@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const ContainerLista = styled.div`
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     width: 82vw;
     height: 100%;
-    margin: auto;
+    /* margin: auto; */
     padding: 24px 32px;
     display: flex;
     flex-wrap: wrap;
@@ -16,18 +16,17 @@ export const ContainerLista = styled.div`
 `
 
 export const ItensCard = styled.div`
-    width: 75vw;
+    width: 78vw;
     display: grid;
     gap: 30px;
     margin: 0 auto;
-    padding: 0;
+    padding: 24px 32px;
     border-bottom: 1px solid #DFE0EB;
-    cursor: pointer;
     :hover {
         background: #F7F8FF;
     }
     img {
-        margin-left: -70px;
+        margin-left: -60px;
         margin-right: 15px;
     }
 
@@ -38,7 +37,6 @@ export const ItensCard = styled.div`
 
 `
 export const Dados = styled.div`
-    background-color: brown;
     display: flex;
     justify-content: space-between;
     padding: 0;
@@ -49,9 +47,8 @@ export const Dados = styled.div`
 `
 
 export const Botoes = styled.div`
-    max-width: 250px;
-    display: flex;
-    justify-content: center;
+    width: 200px;
+
     button {
         width: 85px !important;
         margin: 2px;
@@ -62,7 +59,7 @@ export const Botoes = styled.div`
 
     button:first-child {
         background-color: #FEC400;
-        border-radius: 2em;
+        border-radius: 2rem;
         padding: 5px;
         :hover{
             background-color: #a18a3b
@@ -70,7 +67,7 @@ export const Botoes = styled.div`
     }
     button:nth-child(2) {
         background-color: #F12B2C;
-        border-radius: 2em;
+        border-radius: 2rem;
         padding: 5px;
         :hover {
             background-color: #d13535
@@ -78,10 +75,23 @@ export const Botoes = styled.div`
     }
     button:nth-child(3) {
         background-color: #29CC97;
-        border-radius: 2em;
+        border-radius: 2rem;
         padding: 5px;
         :hover {
             background-color: #22aa7d;
         }
+    }
+`
+export const ItensCardEndereco = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 2fr;
+    align-content: initial;
+    flex-wrap: wrap;
+    width: 78vw;
+    margin: 0 auto;
+    padding: 0;
+    border-bottom: 1px solid #DFE0EB;
+    :hover {
+        background: #F7F8FF;
     }
 `

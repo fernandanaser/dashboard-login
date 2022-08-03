@@ -1,6 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import { API } from "../api";
 import Loading from "../components/Loading/Loading"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 const AuthContext = createContext();
 
@@ -22,16 +24,13 @@ const AuthProvider = ({ children }) => {
     // ★★ fazer handle login em context, try catch ★★
     async function handleLogin(usuario) {
         try {
-            console.log(usuario)
             const { data } = await API.post("/auth", usuario)
-            console.log(data)
             localStorage.setItem("token", data);
             API.defaults.headers.common["Authorization"] = data;
             setLogado(true);
-            // navigate("/usuarios");
             window.location.href = "/home";
         } catch (error) {
-            alert("Usuário ou senha inválidos");
+            toast.error("Usuário ou senha inválidos");
             console.log(error)
         }
     }
@@ -47,7 +46,7 @@ const AuthProvider = ({ children }) => {
 
     // ★★ função handleSignUp para cadastrar usuario e volta para página de login ★★
     async function handleSignUp(usuario) {
-        let nomeInput = document.getElementById("nomeUsuario").value;
+        let nomeInput = document.getElementById("login").value;
         let senhaInput = document.getElementById("senha").value;
         let inputJson = {
             login : nomeInput,

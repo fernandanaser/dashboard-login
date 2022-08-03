@@ -129,6 +129,11 @@ export const Divform = styled.div`
     button:hover {
         background-color: #1a2ca5
     }
+
+    button:disabled {
+        opacity: 0.4;
+        cursor: default;
+    }
 `
 
 export const Required = styled.div`

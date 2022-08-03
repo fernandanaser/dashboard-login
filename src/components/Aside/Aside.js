@@ -18,7 +18,7 @@ function Aside() {
                 <FaHome />
                 <p>Home</p>
             </AsideMenu>
-            <AsideMenu>
+            {/* <AsideMenu>
                 <FaRocket />
                 <p>Overview</p>
             </AsideMenu>
@@ -30,7 +30,7 @@ function Aside() {
             <AsideMenu>
                 <FaCog />
                 <p>Configurações</p>
-            </AsideMenu>
+            </AsideMenu> */}
             <AsideMenu onClick={handleLogout}>
                 <FaPowerOff />
                 <p>Encerrar sessão</p>

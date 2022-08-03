@@ -8,7 +8,7 @@ function PessoasProvider({ children }) {
 
     const [pessoas, setPessoas] = useState([]);
     const [pessoa, setPessoa] = useState();
-    const [endereco, setEndereco] = useState();
+    const [endereco, setEndereco] = useState([]);
 
 
     // ★★★ NAVEGAÇÃO ★★★
@@ -106,7 +106,7 @@ function PessoasProvider({ children }) {
                 }
             });
             alert("Endereço cadastrado com sucesso!");
-            window.location.href = "/home"
+            window.location.href = `/endereco${idPessoa}`
             console.log(data)
         } catch (error) {
             alert(error)
@@ -114,9 +114,13 @@ function PessoasProvider({ children }) {
     }
 
     // ★★★ GET: read ★★★    
-    async function getEndereco(idEndereco) {
+    async function getEndereco(idPessoa) {
         try {
-            const { data } = await API.get(`/endereco/${idEndereco}`, {
+            //TODO como pegar o idPessoa da pag anterior via parametro?
+            const myArray = window.location.href.split("/");
+            console.log(myArray)
+            idPessoa = myArray[myArray.length-1]
+            const { data } = await API.get(`/endereco/retorna-por-id-pessoa?idPessoa=${idPessoa}`, {
                 headers: {
                       Authorization: localStorage.getItem("token")
                     }
@@ -130,23 +134,27 @@ function PessoasProvider({ children }) {
 
         // ★★★ PUT: update ★★★
         async function handleUpdateEndereco(usuario, id) {
+            const myArray = window.location.href.split("/");
+            console.log(myArray)
+            let idPessoa = myArray[myArray.length-1]
+
             console.log("entrou handleUpdateEndereco")
             try {
-                await API.put(`/endereco/${id}`, usuario, {
+                await API.put(`/endereco/${idPessoa}`, usuario, {
                     headers: {
                       Authorization: localStorage.getItem("token")
                     }
                 })
-                window.location.href = "/endereco"
+                window.location.href = `/endereco${idPessoa}`
             } catch (error) {
                 alert(error)
             }
         }
 
     // ★★★ DELETE: delete ★★★
-    async function handleDeleteEndereco(idPessoa) {
+    async function handleDeleteEndereco(idEndereco) {
         try {
-            await API.delete(`/endereco/${idPessoa}`);
+            await API.delete(`/endereco/${idEndereco}`);
             window.location.href = "/endereco";
         } catch (error) {
             alert(error);
@@ -165,6 +173,7 @@ function PessoasProvider({ children }) {
             goUpdate,
             pessoas,
             pessoa,
+            endereco,
             handleCreateEndereco,
             getEndereco,
             handleUpdateEndereco,

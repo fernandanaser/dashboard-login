@@ -4,6 +4,7 @@ export const Background = styled.body`
     background-color: #F7F8FC;
     margin: 0;
     display: block;
+    width: 85vw;
     
     button {
         margin: 0px 32px 24px 32px;
@@ -49,8 +50,8 @@ export const HeaderPessoas = styled.div`
     }
 
     h3 {
-        border-left: 1px solid #DFE0EB;
-        padding-left: 20px;
+        /* border-left: 1px solid #DFE0EB; */
+        padding-left: 130px;
         color: #252733;
     }
 

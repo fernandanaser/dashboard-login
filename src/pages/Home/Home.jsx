@@ -7,8 +7,6 @@ import usuario from "./usuario.png"
 import { useContext, useEffect } from "react";
 import { PessoasContext } from "../../context/PessoasContext";
 
-
-
 function Home() {
     const { getPessoas, pessoas } = useContext(PessoasContext)
     // const {  pessoas } = useContext(PessoasContext);
@@ -23,9 +21,10 @@ function Home() {
     async function setup() {
         getPessoas();
       }
-      useEffect(() => {
+    useEffect(() => {
+        console.log("setupPessoa")
         setup();
-      }, []);
+    }, []);
 
     return (
         <>
@@ -37,8 +36,8 @@ function Home() {
                             <h1>Pessoas</h1>
                         </div>
                         <div>
-                            <FaSistrix />
-                            <FaBell />
+                            {/* <FaSistrix />
+                            <FaBell /> */}
                             <h3>Usuário</h3>
                             <DivImg>
                                 <img width="48px" src={usuario} alt="Usuário" />
@@ -48,12 +47,12 @@ function Home() {
                     <BoxPessoas>
                         <div>
                             <h3>Todas as pessoas</h3>
-                            <div>
+                            {/* <div>
                                 <FaSortAmountUp />
                                 <small>Sort</small>
                                 <FaFilter />
                                 <small>Filter</small>
-                            </div>
+                            </div> */}
                         </div>
                         <Toptitulo>
                             <p>Nome</p>
@@ -63,9 +62,6 @@ function Home() {
                             <p> Ação</p>
                         </Toptitulo>
 
-                        {/* Aqui vai a listagem das pessoas */}
-                        {/* { <Lista listaPessoas={getPessoas()} /> } */}
-                        {/* <Lista listaPessoas={pessoas} /> */}
                         <Lista listaPessoas={pessoas} />
 
 

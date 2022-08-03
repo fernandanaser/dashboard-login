@@ -1,4 +1,4 @@
-import { Form, Formik } from "formik";
+import { Form, Formik, Field, ErrorMessage} from "formik";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import * as Yup from 'yup';
@@ -30,6 +30,7 @@ const Usuarios = () => {
         handleSignUp()
     }
 
+
     return (
         <Background>
             <LoginContainer>
@@ -39,20 +40,22 @@ const Usuarios = () => {
                 <small>Insira usuário e senha abaixo</small>
                 <Formik
                     initialValues={{
-                        nomeUsuario: '',
+                        login: '',
                         senha: '',
                     }}
                     validationSchema={SignupSchema}
+                    // onSubmit={values => {
+                        // handleSignUp(values)}}
 
                 >
                     {({ errors, touched }) => (
                         <Form>
                             <Divform>
-                                <label htmlFor="nomeUsuario">NOME DE USUÁRIO</label>
+                                <label htmlFor="login">NOME DE USUÁRIO</label>
 
-                                <Fieldform id="nomeUsuario" name="nomeUsuario" placeholder="Nome de suário" />
-                                {errors.nomeUsuario && touched.nomeUsuario ? (
-                                    <Required>{errors.nomeUsuario}</Required>
+                                <Fieldform id="login" name="login" type="text" placeholder="Nome de suário" />
+                                {errors.login && touched.login ? (
+                                    <Required>{errors.login}</Required>
                                 ) : null}
 
                                 <label htmlFor="senha">SENHA</label>
@@ -63,7 +66,6 @@ const Usuarios = () => {
                                 ) : null}
 
                                 <button onClick={signUp}>Cadastrar</button>
-
                                 <button onClick={goLogin}>Voltar</button>
                             </Divform>
                         </Form>

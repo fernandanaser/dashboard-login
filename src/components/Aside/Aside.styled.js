@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Asidehome = styled.aside`
     background-color: #363740;
-    width: 255px;
+    width: 15vw;
     height: 140vh;
     
     div:first-child {
